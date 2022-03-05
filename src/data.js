@@ -1,4 +1,4 @@
-export const commentData = {
+export const data = {
   currentUser: {
     image: {
       png: "./images/avatars/image-juliusomo.png",
@@ -14,8 +14,8 @@ export const commentData = {
       score: 12,
       user: {
         image: {
-          png: "./images/avatars/image-amyrobson.png",
-          webp: "./images/avatars/image-amyrobson.webp"
+          png: "/images/avatars/image-amyrobson.png",
+          webp: "/images/avatars/image-amyrobson.webp"
         },
         username: "amyrobson"
       },
@@ -46,7 +46,8 @@ export const commentData = {
               webp: "./images/avatars/image-ramsesmiron.webp"
             },
             username: "ramsesmiron"
-          }
+          },
+          replies: []
         },
         {
           id: 4,
@@ -60,7 +61,8 @@ export const commentData = {
               webp: "./images/avatars/image-juliusomo.webp"
             },
             username: "juliusomo"
-          }
+          },
+          replies: []
         }
       ]
     }

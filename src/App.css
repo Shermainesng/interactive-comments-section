@@ -2,8 +2,13 @@
   background-color: hsl(228, 33%, 97%);
 }
 
-/* comment-card */
+/* coomments.js */
 .comment-card {
-  background: white;
+  background-color: white;
   border-radius: 3px;
+}
+.reply-card {
+  background-color: white;
+  border: 1px black solid;
+  width: 80%;
 }

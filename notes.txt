@@ -1,0 +1,37 @@
+App.js
+- const [comment, setComments] = React.useState(data.comments) //the array
+- send the data as props to comments and newComment
+<Comments comments ={comments} setComment={setComments}>
+
+commentList.js
+- receive props from App.js and map the array, pass it to comment.js
+
+comment.js
+- take in props from commentList.js and create individual comment cards
+- if there is replies on that comment, pass data to REPLIES.JS to do mapping
+
+REPLYLIST.JS
+- receives props from COMMENT.JS and does mapping, then pass it to REPLY.JS
+
+REPLY.JS
+- receives props from REPLYLIST.JS and creates indiv reply cards
+- button for users to reply on this reply
+
+COMMENTFORM.JS - new comment form + add current user's comment to comment array in APP.JS
+- receive props from App.js
+- declare a useState variable of newContent, setNewContent
+- when user clicks on submit, create a newComment and push it to the app's comments using setComments
+- COMMENT.JS will then take this updated comment and map it, then pass it to COMMENT.JS
+
+REPLYFORM.JS
+- receives replies array from COMMENT.JS
+- when user submits the reply, update the reply array with the new reply
+- create a new reply and concat it to reply array
+  - used global state context to access currentUser from this component
+
+CREATING A REPLY LOOP
+#  i can now reply a reply
+# when i submit a reply on a reply, the og reply becomes a comment
+- in REPLY.JS user can click on reply button, and i store their replies in another array and pass it to REPLYLIST
+  - REPLYLIST will take this new array of replies and map it and pass it to REPLY AGAIN
+  - REPLYFORM will create the new reply on reply and concat it to the array of replies
