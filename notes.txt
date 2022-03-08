@@ -35,3 +35,4 @@ CREATING A REPLY LOOP
 - in REPLY.JS user can click on reply button, and i store their replies in another array and pass it to REPLYLIST
   - REPLYLIST will take this new array of replies and map it and pass it to REPLY AGAIN
   - REPLYFORM will create the new reply on reply and concat it to the array of replies
+everytime i click on reply on a reply, the commentReplies array starts from 0 again

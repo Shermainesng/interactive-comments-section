@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Reply from "./Reply";
 
 function ReplyList(props) {
-  //receives the replies array (per comment)
+  //receives the replies array (per comment) from comment.js
+  //receives the replies array (per reply) from reply.js
 
   return (
     <div>

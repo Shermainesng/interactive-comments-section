@@ -7,8 +7,15 @@
   background-color: white;
   border-radius: 3px;
 }
+.comment-card svg:hover {
+  fill: black;
+}
+/* reply.js */
 .reply-card {
   background-color: white;
   border: 1px black solid;
+  width: 80%;
+}
+.reply-reply-lists {
   width: 80%;
 }
