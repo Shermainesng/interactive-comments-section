@@ -19,3 +19,11 @@
 .reply-reply-lists {
   width: 80%;
 }
+
+/* newReply.js */
+.new-reply-hidden {
+  visibility: hidden;
+}
+.new-reply-visible {
+  visibility: visible;
+}

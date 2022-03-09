@@ -1,9 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import StateContext from "../StateContext";
+import DispatchContext from "../DispatchContext";
 
-function CommentForm(props) {
+function CommentForm() {
+  //takes comments array from app.js, then push new comment to the global state
   const [newContent, setNewContent] = useState("");
   const appState = useContext(StateContext);
+  const appDispatch = useContext(DispatchContext);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -11,6 +14,7 @@ function CommentForm(props) {
       return;
     }
     const newComment = {
+      id: Math.floor(Math.random() * 100) + 5,
       content: newContent,
       createdAt: "1 min ago",
       score: 0,
@@ -22,7 +26,8 @@ function CommentForm(props) {
       },
       replies: []
     };
-    props.setComments(prev => prev.concat(newComment));
+    appDispatch({ type: "addComment", value: newComment });
+    // props.setComments(prev => prev.concat(newComment));
   }
 
   return (

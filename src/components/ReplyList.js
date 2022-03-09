@@ -10,7 +10,7 @@ function ReplyList(props) {
       {props.replies &&
         props.replies.length > 0 &&
         props.replies.map((reply, index) => {
-          return <Reply key={index} reply={reply} />;
+          return <Reply key={reply.id} reply={reply} setReplies={props.setCommentReplies} replies={props.replies} />;
         })}
     </div>
   );

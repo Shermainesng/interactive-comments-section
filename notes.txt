@@ -30,9 +30,22 @@ REPLYFORM.JS
   - used global state context to access currentUser from this component
 
 CREATING A REPLY LOOP
-#  i can now reply a reply
-# when i submit a reply on a reply, the og reply becomes a comment
-- in REPLY.JS user can click on reply button, and i store their replies in another array and pass it to REPLYLIST
-  - REPLYLIST will take this new array of replies and map it and pass it to REPLY AGAIN
-  - REPLYFORM will create the new reply on reply and concat it to the array of replies
-everytime i click on reply on a reply, the commentReplies array starts from 0 again
+# COMMENT.JS: when i reply on a comment, REPLYFORM.JS is rendered and the comment is added to {commentReplies}
+# REPLYLIST takes the updated {commentReplies} and map it out to pass each reply to REPLY.JS
+#
+
+DELETE A COMMENT (if it belongs to user)
+- add delete button if comment belongs to user
+- if user clicks on delete, access global state COMMENTS and filter it, excluding the comment with the selected ID
+- updated the global comments state from the COMMENT.JS
+
+DELETE A REPLY (on a comment)
+- from replyList, pass in the replies array + setReplies function to reply
+- when reply is deleted, filter out that reply from the replies array using ID
+- use the function to update the replies array, which causes REPLYLIST.JS to remap the updated array
+
+DELETE A REPLY (on a reply)
+- from REPLY.js, when user clicks on reply (on reply), we render REPLYFORM.JS which will update the reply replies array
+- REPLYLIST will then take the updated array and map it to reply
+- REPLYLIST also passes function to update replies array to REPLY.JS
+- REPLY.JS could then filter out the deleted reply on the reply and update the array, which will be sent to REPLYLIST to get mapped back

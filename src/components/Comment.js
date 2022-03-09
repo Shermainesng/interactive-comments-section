@@ -2,16 +2,22 @@ import React, { useEffect, useState, useContext } from "react";
 import ReplyForm from "./ReplyForm";
 import ReplyList from "./ReplyList";
 import StateContext from "../StateContext";
+import DispatchContext from "../DispatchContext";
 
 function Comment(props) {
-  //receives the mapped comments from commentList
+  //receives each comment hash from commentList
   const [clickedReply, setClickedReply] = useState(false);
   const [commentReplies, setCommentReplies] = useState(props.comment.replies); //the array of replies for each comment
   const appState = useContext(StateContext);
+  const appDispatch = useContext(DispatchContext);
 
   function deleteHandler() {
-    console.log("delete comment");
-    //find a way to filter the list of comments, then update the list (remove this comment)
+    const areYouSure = window.confirm("Do you really want to delete this comment?");
+    if (areYouSure) {
+      let updatedComments = appState.comments.filter(comment => comment.id !== props.comment.id);
+      console.log(updatedComments);
+      appDispatch({ type: "deleteComment", value: updatedComments });
+    }
   }
 
   return (
@@ -23,10 +29,12 @@ function Comment(props) {
         <p>{props.comment.createdAt}</p>
         {props.comment.user.username === appState.currentUser.username && (
           <div>
-            <svg onClick={deleteHandler} width="12" height="14" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.167 12.448c0 .854.7 1.552 1.555 1.552h6.222c.856 0 1.556-.698 1.556-1.552V3.5H1.167v8.948Zm10.5-11.281H8.75L7.773 0h-3.88l-.976 1.167H0v1.166h11.667V1.167Z" fill="#ED6368" />
-            </svg>
-            <small>Delete</small>
+            <button onClick={deleteHandler}>
+              <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.167 12.448c0 .854.7 1.552 1.555 1.552h6.222c.856 0 1.556-.698 1.556-1.552V3.5H1.167v8.948Zm10.5-11.281H8.75L7.773 0h-3.88l-.976 1.167H0v1.166h11.667V1.167Z" fill="#ED6368" />
+              </svg>
+              <small>Delete</small>
+            </button>
           </div>
         )}
         {props.comment.user.username === appState.currentUser.username && (
@@ -41,20 +49,12 @@ function Comment(props) {
         {/* handling replies on comments */}
         <button onClick={() => setClickedReply(!clickedReply)}>Reply</button>
       </div>
-      {clickedReply ? <ReplyForm replies={commentReplies} setCommentReplies={setCommentReplies} /> : ""}
+      {clickedReply ? <ReplyForm setClickedReply={setClickedReply} replies={commentReplies} setCommentReplies={setCommentReplies} /> : ""}
       <div className="comment-reply-lists">
-        <ReplyList replies={commentReplies} />
+        <ReplyList replies={commentReplies} setCommentReplies={setCommentReplies} />
       </div>
     </div>
   );
 }
 
 export default Comment;
-
-//  {
-//    /* {comment.replies.length > 1 && (
-//                 <div className="reply-lists">
-//                   <Replies replies={comment.replies} />
-//                 </div>
-//               )} */
-// //  }
