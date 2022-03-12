@@ -49,3 +49,21 @@ DELETE A REPLY (on a reply)
 - REPLYLIST will then take the updated array and map it to reply
 - REPLYLIST also passes function to update replies array to REPLY.JS
 - REPLY.JS could then filter out the deleted reply on the reply and update the array, which will be sent to REPLYLIST to get mapped back
+
+getting reply form to disappear after i submit
+- set a useImmer state, if is true, change the class to hidden
+
+edit comment
+- click on edit in COMMENT.JS and render EditComment.js
+- grab the current content, pass props from COMMENT.JS
+
+
+
+- when user clicks on edit post, routes them to <edit post> 
+- useReducer
+    - original state: content, sendCount
+    - useEffect to get the post content, then update the original state with the current content
+    - when user clicks on submit, sendCount increases
+    - when sendCount increases, post request sent to save edited post
+- editpost.js
+  - render the form again, 

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import StateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";
 
-function CommentForm() {
+function CommentForm(props) {
   //takes comments array from app.js, then push new comment to the global state
   const [newContent, setNewContent] = useState("");
   const appState = useContext(StateContext);
@@ -31,17 +31,21 @@ function CommentForm() {
   }
 
   return (
-    <div className="new-comment">
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="comment-title" className="text-muted mb-1">
-            <small>Comment</small>
-          </label>
-          <textarea onChange={e => setNewContent(e.target.value)} value={newContent} autoFocus name="content" id="content-title" className="form-control form-control-lg form-control-title" type="text" placeholder="" autoComplete="off" />
-        </div>
+    <div className="row justify-content-center text-center">
+      <div className="col-lg-6">
+        <div className="new-comment">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="comment-title" className="text-muted mb-1">
+                <small>Comment</small>
+              </label>
+              <textarea onChange={e => setNewContent(e.target.value)} value={newContent} name="content" id="content-title" className="form-control form-control-lg form-control-title" type="text" placeholder="" autoComplete="off" />
+            </div>
 
-        <button className="btn btn-primary">SEND</button>
-      </form>
+            <button className="btn btn-primary">SEND</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

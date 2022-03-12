@@ -19,6 +19,7 @@ function ReplyForm(props) {
       id: Math.floor(Math.random() * 100) + 5,
       content: replyContent,
       createdAt: "1 min ago",
+      score: 0,
       user: {
         image: {
           png: appState.currentUser.image.png
