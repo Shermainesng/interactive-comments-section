@@ -2,13 +2,30 @@
   background-color: hsl(228, 33%, 97%);
 }
 
-/* coomments.js */
+/* comment.js */
 .comment-card {
   background-color: white;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 .comment-card svg:hover {
   fill: black;
+}
+.comment-card .counter {
+  background-color: #efefef;
+}
+.comment-card .counter button {
+  border: none;
+}
+.user-info .info-card img {
+  height: 2rem;
+}
+button {
+  background: none;
+  border: none;
+}
+
+.para p {
+  text-align: justify;
 }
 /* reply.js */
 .reply-card {
