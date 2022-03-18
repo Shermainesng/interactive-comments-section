@@ -10,7 +10,7 @@
 .comment-card svg:hover {
   fill: black;
 }
-.comment-card .counter {
+.counter {
   background-color: #efefef;
 }
 .comment-card .counter button {
@@ -24,13 +24,12 @@ button {
   border: none;
 }
 
-.para p {
+p {
   text-align: justify;
 }
 /* reply.js */
 .reply-card {
   background-color: white;
-  border: 1px black solid;
   width: 80%;
 }
 .reply-reply-lists {

@@ -53,10 +53,10 @@ function Comment(props) {
               </button>
             </div>
           </div>
-          <div className="flex-grow-1">
+          <div className="flex-grow-1 ms-3">
             <div className="user-info d-flex justify-content-between">
               <div className="info-card d-flex align-items-center">
-                <img className="ms-2" src={props.comment.user.image.png} alt="pfp" />
+                <img src={props.comment.user.image.png} alt="pfp" />
                 <p className="ms-2">{props.comment.user.username}</p>
                 <p className="ms-2">{props.comment.createdAt}</p>
               </div>
@@ -99,7 +99,7 @@ function Comment(props) {
                 </button>
               </div>
             ) : (
-              <p className="m-0 text-start ms-3">{commentContent}</p>
+              <p>{commentContent}</p>
             )}
           </div>
         </div>
